@@ -4,8 +4,7 @@ import View from '@vkontakte/vkui/dist/components/View/View';
 import { AdaptivityProvider, AppRoot } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Home from './panels/Home';
-import Persik from './panels/Persik';
+import store from './redux/store/store'
 
 import RolesSelect from './panels/RolesSelect'
 
@@ -42,14 +41,12 @@ const App = () => {
 		<AdaptivityProvider>
 			<AppRoot>
 				<View activePanel={activePanel}>
-					<RolesSelect id='role' fetchedUser={fetchedUser} go={go} />
+					<RolesSelect id='role' fetchedUser={fetchedUser} go={go} store={store}/>
 
-					<TeacherProfile id="teacher_profile" fetchedUser={fetchedUser} go={go} />
-					<AddClub id="teacher_addClub" fetchedUser={fetchedUser} go={go} />
-					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} />
-					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} />
-
-					<Persik id='persik' go={go} />
+					<TeacherProfile id="teacher_profile" fetchedUser={fetchedUser} go={go} store={store}/>
+					<AddClub id="teacher_addClub" fetchedUser={fetchedUser} go={go} store={store}/>
+					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} store={store}/>
+					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} store={store}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>

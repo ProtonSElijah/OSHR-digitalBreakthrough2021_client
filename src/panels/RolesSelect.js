@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
 import Select from '@vkontakte/vkui/dist/components/Select/Select';
 import { FormItem } from '@vkontakte/vkui/dist/components/FormItem/FormItem';
@@ -35,7 +35,6 @@ const RolesSelect = ({ id, go, fetchedUser }) => {
 	const [roleId, setRoleId] = useState(null)
 
 	const onChangeRole = (e) => {
-		console.log(e.currentTarget.value)
 		setRole(e.currentTarget.value)
 		setRoleId(`${e.currentTarget.value}_profile`)
 	}

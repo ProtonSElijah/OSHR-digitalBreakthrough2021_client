@@ -8,6 +8,8 @@ import {
   } from "@vkontakte/vkui"
 
 const AddStudyGroup = ({ id, go, fetchedUser }) => {
+
+
 	return (
 		<Panel id={id}>
 			<PanelHeader
