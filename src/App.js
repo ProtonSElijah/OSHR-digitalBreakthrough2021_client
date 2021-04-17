@@ -9,6 +9,12 @@ import Persik from './panels/Persik';
 
 import RolesSelect from './panels/RolesSelect'
 
+//Учитель
+import TeacherProfile from './panels/teacher/Profile'
+import AddClub from './panels/teacher/forms/AddClub'
+import AddStudyGroup from './panels/teacher/forms/AddStudyGroup'
+import AddStudent from './panels/teacher/forms/AddStudent'
+
 const App = () => {
 	const [activePanel, setActivePanel] = useState('role');
 	const [fetchedUser, setUser] = useState(null);
@@ -37,6 +43,12 @@ const App = () => {
 			<AppRoot>
 				<View activePanel={activePanel}>
 					<RolesSelect id='role' fetchedUser={fetchedUser} go={go} />
+
+					<TeacherProfile id="teacher_profile" fetchedUser={fetchedUser} go={go} />
+					<AddClub id="teacher_addClub" fetchedUser={fetchedUser} go={go} />
+					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} />
+					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} />
+
 					<Persik id='persik' go={go} />
 				</View>
 			</AppRoot>
