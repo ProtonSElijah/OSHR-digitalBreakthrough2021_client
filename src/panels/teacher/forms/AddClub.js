@@ -26,6 +26,7 @@ const AddClub = ({ id, go, fetchedUser, store }) => {
             'name': name
         }
         store.dispatch(addClub_action(club))
+        go({'currentTarget': {'dataset': {'to': 'teacher_profile'}}})
     }
 
 	return (

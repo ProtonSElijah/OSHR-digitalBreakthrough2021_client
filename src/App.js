@@ -10,9 +10,11 @@ import RolesSelect from './panels/RolesSelect'
 
 //Учитель
 import TeacherProfile from './panels/teacher/Profile'
+//Формы
 import AddClub from './panels/teacher/forms/AddClub'
 import AddStudyGroup from './panels/teacher/forms/AddStudyGroup'
 import AddStudent from './panels/teacher/forms/AddStudent'
+
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('role');
@@ -47,6 +49,7 @@ const App = () => {
 					<AddClub id="teacher_addClub" fetchedUser={fetchedUser} go={go} store={store}/>
 					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} store={store}/>
 					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} store={store}/>
+					
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
