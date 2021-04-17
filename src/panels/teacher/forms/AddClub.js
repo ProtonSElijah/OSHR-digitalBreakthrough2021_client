@@ -23,7 +23,8 @@ const AddClub = ({ id, go, fetchedUser, store }) => {
 
     const addClub = () => {
         const club = {
-            'name': name
+            'name': name,
+            'id': Math.floor(Math.random() * 10000)
         }
         store.dispatch(addClub_action(club))
         go({'currentTarget': {'dataset': {'to': 'teacher_profile'}}})

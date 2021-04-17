@@ -11,6 +11,7 @@ import {
     Button,
     Header,
     PanelHeader,
+    PanelHeaderBack,
     Panel,
     Gradient,
     CellButton,
@@ -21,16 +22,26 @@ import {
     Icon28AddOutline
   } from "@vkontakte/icons"
 
-  import Clubs from './components/Clubs'
 
+const StudentProfile = ({ id, go, fetchedUser, store, student_id }) => {
+    const getStudent = () => {
+        const students = store.getState().teacherState.students
+        for (const student of students) {
+            if (student.id === student_id) {
+                return student ? student : null
+            }
+        }
+    }
 
-const TeacherProfile = ({ id, go, fetchedUser, store }) => {
-    //const clubs = useSelector(state => state.clubs)
-    const clubs = store.getState().teacherState.clubs
+    const student = getStudent()
 
     return (
         <Panel id={id}>
-            <PanelHeader>Профиль учителя</PanelHeader>
+            <PanelHeader
+                left={<PanelHeaderBack onClick={go} data-to="group"/>}
+            >
+                Профиль ученика
+            </PanelHeader>
 
             <Group>
                 <Gradient style={{
@@ -41,19 +52,21 @@ const TeacherProfile = ({ id, go, fetchedUser, store }) => {
                     textAlign: 'center',
                     padding: 32,
                 }}>
-                    <Avatar size={96} src={fetchedUser && fetchedUser.photo_200 ? fetchedUser.photo_200 : ''} />
+                    <Avatar />
                     <Title style={{ marginBottom: 8, marginTop: 20 }} level="2" weight="medium">{
-                        `${fetchedUser && fetchedUser.first_name ? fetchedUser.first_name : ''} 
-                        ${fetchedUser && fetchedUser.last_name ? fetchedUser.last_name : ''}`}
+                        `${student && student.firstname ? student.firstname : ''} 
+                        ${student && student.lastname ? student.lastname : ''}`}
                     </Title>
                     <Text style={{ marginBottom: 24, color: 'var(--text_secondary)' }}>Инфо</Text>
                     <Button size="m" mode="secondary">Редактировать</Button>
                 </Gradient>
-
-                <CellButton before={<Icon28AddOutline />} onClick={go} data-to={'teacher_addClub'}>Добавить секцию</CellButton>
             </Group>
+        </Panel>
+    )
+}
 
-            <Group
+/*
+<Group
                 header={<Header>Мои секции</Header>}
             >
                 {clubs.length > 0 &&
@@ -65,9 +78,7 @@ const TeacherProfile = ({ id, go, fetchedUser, store }) => {
                     </Div>
                 }
             </Group>
-        </Panel>
-    )
-}
+*/
 
 /*
 <Group mode="plain">
@@ -77,17 +88,8 @@ const TeacherProfile = ({ id, go, fetchedUser, store }) => {
             </Group>
 */
 
-TeacherProfile.propTypes = {
-	id: PropTypes.string.isRequired,
-	go: PropTypes.func.isRequired,
-	fetchedUser: PropTypes.shape({
-		photo_200: PropTypes.string,
-		first_name: PropTypes.string,
-		last_name: PropTypes.string,
-		city: PropTypes.shape({
-			title: PropTypes.string,
-		}),
-	}),
+StudentProfile.propTypes = {
+
 };
 
-export default TeacherProfile;
+export default StudentProfile;

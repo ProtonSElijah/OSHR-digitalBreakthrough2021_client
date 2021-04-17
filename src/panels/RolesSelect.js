@@ -31,7 +31,7 @@ const roles = [
 ]
 
 const RolesSelect = ({ id, go, fetchedUser }) => {
-	const [role, setRole] = useState('role');
+	const [role, setRole] = useState('');
 	const [roleId, setRoleId] = useState(null)
 
 	const onChangeRole = (e) => {
@@ -51,6 +51,7 @@ const RolesSelect = ({ id, go, fetchedUser }) => {
 						<Select
 							placeholder="Роль не выбрана" 
 							onChange={onChangeRole}
+							value={role}
 							options={roles.map(role => ({ label: role.type, value: role.value }))}
 							renderOption={({ option, ...restProps }) => (
 								<CustomSelectOption {...restProps} />

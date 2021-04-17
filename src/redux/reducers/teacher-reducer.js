@@ -1,19 +1,6 @@
 const initialState = {
-    /*
-    clubs: [
-        { // groups
-            name: 'groupName'
-            students: [
-                { // students
-                    name: 'studentName
-                }
-            ]
-        }
-    ]
-    */
-    clubs: [
-
-    ]
+    clubs: [],
+    students: []
 }
 
 function teacher(state=initialState, action) {
@@ -27,7 +14,24 @@ function teacher(state=initialState, action) {
         case 'ADD_GROUP': {
             for (const club of state.clubs) {
                 if (club.name === action.club_name) {
-                    club['groups'].push(action.group)
+                    action.group.students = []
+                    club.groups.push(action.group)
+                    break
+                }
+            }
+            return state
+        }
+        case 'ADD_STUDENT': {
+            for (const club of state.clubs) {
+                if (club.name === action.club_name) {
+                    club.students.push(action.student)
+                    for (const group of club.groups) {
+                        if (group.name === action.group_name) {
+                            group.students.push(action.student)
+                            state.students.push(action.student)
+                            break
+                        }
+                    }
                     break
                 }
             }

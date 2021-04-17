@@ -16,6 +16,9 @@ import AddStudyGroup from './panels/teacher/forms/AddStudyGroup'
 import AddStudent from './panels/teacher/forms/AddStudent'
 //Экраны
 import Club from './panels/teacher/screens/Club'
+import GroupOfClub from './panels/teacher/screens/GroupOfClub'
+//Ученик учителя
+import StudentProfile from './panels/student/Profile'
 
 
 const App = () => {
@@ -23,6 +26,7 @@ const App = () => {
 	const [fetchedUser, setUser] = useState(null)
 	const [clubId, setClubId] = useState('')
 	const [groupId, setGroupId] = useState('')
+	const [studentId, setStudentId] = useState('')
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
@@ -43,8 +47,11 @@ const App = () => {
 		if (e.currentTarget.dataset.clubid) {
 			setClubId(e.currentTarget.dataset.clubid)
 		}
-		if (e.currentTarget.dataset.groupId) {
-			setClubId(e.currentTarget.dataset.groupid)
+		if (e.currentTarget.dataset.groupid) {
+			setGroupId(e.currentTarget.dataset.groupid)
+		}
+		if (e.currentTarget.dataset.studentid) {
+			setStudentId(e.currentTarget.dataset.studentid)
 		}
 		setActivePanel(e.currentTarget.dataset.to)
 	};
@@ -58,8 +65,10 @@ const App = () => {
 					<TeacherProfile id="teacher_profile" fetchedUser={fetchedUser} go={go} store={store}/>
 					<AddClub id="teacher_addClub" fetchedUser={fetchedUser} go={go} store={store}/>
 					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId}/>
-					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} store={store}/>
+					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} group_name={groupId}/>
 					<Club id="club" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} />
+					<GroupOfClub id="group" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} group_name={groupId}/>
+					<StudentProfile id="teacher_student" fetchedUser={fetchedUser} go={go} store={store} student_id={studentId} />
 					
 				</View>
 			</AppRoot>
