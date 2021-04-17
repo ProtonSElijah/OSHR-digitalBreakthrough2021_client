@@ -4,20 +4,25 @@ import View from '@vkontakte/vkui/dist/components/View/View';
 import { AdaptivityProvider, AppRoot } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Home from './panels/Home';
-import Persik from './panels/Persik';
+import store from './redux/store/store'
 
 import RolesSelect from './panels/RolesSelect'
 
 //Учитель
 import TeacherProfile from './panels/teacher/Profile'
+//Формы
 import AddClub from './panels/teacher/forms/AddClub'
 import AddStudyGroup from './panels/teacher/forms/AddStudyGroup'
 import AddStudent from './panels/teacher/forms/AddStudent'
+//Экраны
+import Club from './panels/teacher/screens/Club'
+
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('role');
-	const [fetchedUser, setUser] = useState(null);
+	const [fetchedUser, setUser] = useState(null)
+	const [clubId, setClubId] = useState('')
+	const [groupId, setGroupId] = useState('')
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
@@ -35,21 +40,27 @@ const App = () => {
 	}, []);
 
 	const go = e => {
-		setActivePanel(e.currentTarget.dataset.to);
+		if (e.currentTarget.dataset.clubid) {
+			setClubId(e.currentTarget.dataset.clubid)
+		}
+		if (e.currentTarget.dataset.groupId) {
+			setClubId(e.currentTarget.dataset.groupid)
+		}
+		setActivePanel(e.currentTarget.dataset.to)
 	};
 
 	return (
 		<AdaptivityProvider>
 			<AppRoot>
 				<View activePanel={activePanel}>
-					<RolesSelect id='role' fetchedUser={fetchedUser} go={go} />
+					<RolesSelect id='role' fetchedUser={fetchedUser} go={go} store={store}/>
 
-					<TeacherProfile id="teacher_profile" fetchedUser={fetchedUser} go={go} />
-					<AddClub id="teacher_addClub" fetchedUser={fetchedUser} go={go} />
-					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} />
-					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} />
-
-					<Persik id='persik' go={go} />
+					<TeacherProfile id="teacher_profile" fetchedUser={fetchedUser} go={go} store={store}/>
+					<AddClub id="teacher_addClub" fetchedUser={fetchedUser} go={go} store={store}/>
+					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} store={store}/>
+					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} store={store}/>
+					<Club id="club" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} />
+					
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
