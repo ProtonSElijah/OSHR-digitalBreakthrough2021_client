@@ -7,7 +7,7 @@ import {
     PanelHeaderBack
   } from "@vkontakte/vkui"
 
-const AddStudent = ({ id, go, fetchedUser }) => {
+const AddStudent = ({ id, go, fetchedUser, store }) => {
 	return (
 		<Panel id={id}>
 			<PanelHeader

@@ -57,7 +57,7 @@ const App = () => {
 
 					<TeacherProfile id="teacher_profile" fetchedUser={fetchedUser} go={go} store={store}/>
 					<AddClub id="teacher_addClub" fetchedUser={fetchedUser} go={go} store={store}/>
-					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} store={store}/>
+					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId}/>
 					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} store={store}/>
 					<Club id="club" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} />
 					
