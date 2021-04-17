@@ -60,7 +60,7 @@ const TeacherProfile = ({ id, go, fetchedUser, store }) => {
                 header={<Header>Мои секции</Header>}
             >
                 {clubs.length > 0 &&
-                    <Clubs clubs={clubs} />
+                    <Clubs go={go} clubs={clubs} />
                 }
                 {clubs.length === 0 &&
                     <Div>

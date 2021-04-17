@@ -12,7 +12,19 @@ import {
     Button
   } from "@vkontakte/vkui"
 
-const Club = ({ id, go, fetchedUser, store, club_name, club_groups  }) => {
+const Club = ({ id, go, fetchedUser, store, club_name }) => {
+    const [groups, setGroups] = useState(null)
+
+    const getGroupsOfClub = () => {
+        const clubs = store.getState().teacherState.clubs
+        for (const club of clubs) {
+            if (club.name === club_name) {
+                console.log(club.groups)
+                setGroups(club.groups ? club.groups : null)
+                break
+            }
+        }
+    }
 
 	return (
 		<Panel id={id}>
@@ -28,7 +40,7 @@ const Club = ({ id, go, fetchedUser, store, club_name, club_groups  }) => {
     /*
     <Group>
                 {club_groups && club_groups > 0 &&
-                    <Groups groups={club_groups} />
+                    <Groups groups={groups} />
                 }
                 {club_groups || clubs.length === 0 &&
                     <Div>
@@ -41,7 +53,6 @@ const Club = ({ id, go, fetchedUser, store, club_name, club_groups  }) => {
 
 Club.propTypes = {
     club_name: PropTypes.string.isRequired,
-    club_groups: PropTypes.array.isRequired
 };
 
 export default Club;

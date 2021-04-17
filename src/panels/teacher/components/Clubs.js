@@ -5,10 +5,11 @@ import {
     SimpleCell
 } from '@vkontakte/vkui'
 
-const Clubs = ({ clubs }) => {
+const Clubs = ({ go, clubs }) => {
+
     return clubs.map(
         (club) =>
-            <SimpleCell key={club.name}>
+            <SimpleCell key={club.name} onClick={go} data-to="club" data-clubid={club.name}>
                 {club.name ? club.name : ''}
             </SimpleCell>
     )
