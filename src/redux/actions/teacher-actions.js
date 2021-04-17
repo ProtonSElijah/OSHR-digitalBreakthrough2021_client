@@ -12,3 +12,12 @@ export function addGroup (group, club_name) {
         club_name
     };
 }
+
+export function addStudent (student, group_name, club_name) {
+    return {
+        type: 'ADD_STUDENT',
+        student,
+        group_name,
+        club_name
+    }
+}

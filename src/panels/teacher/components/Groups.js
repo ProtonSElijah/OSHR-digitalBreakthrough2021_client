@@ -16,7 +16,8 @@ const Groups = ({ go, groups, club_name }) => {
 }
 
 Groups.propTypes = {
-    groups: PropTypes.array.isRequired
+    groups: PropTypes.array.isRequired,
+    club_name: PropTypes.string.isRequired
 }
 
 export default Groups

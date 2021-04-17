@@ -44,7 +44,7 @@ const App = () => {
 		if (e.currentTarget.dataset.clubid) {
 			setClubId(e.currentTarget.dataset.clubid)
 		}
-		if (e.currentTarget.dataset.groupId) {
+		if (e.currentTarget.dataset.groupid) {
 			setGroupId(e.currentTarget.dataset.groupid)
 		}
 		setActivePanel(e.currentTarget.dataset.to)
@@ -59,7 +59,7 @@ const App = () => {
 					<TeacherProfile id="teacher_profile" fetchedUser={fetchedUser} go={go} store={store}/>
 					<AddClub id="teacher_addClub" fetchedUser={fetchedUser} go={go} store={store}/>
 					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId}/>
-					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} store={store}/>
+					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} group_name={groupId}/>
 					<Club id="club" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} />
 					<GroupOfClub id="group" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} group_name={groupId}/>
 					

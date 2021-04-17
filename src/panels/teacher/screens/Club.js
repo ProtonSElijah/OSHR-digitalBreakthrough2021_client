@@ -50,7 +50,7 @@ const Club = ({ id, go, fetchedUser, store, club_name }) => {
                 header={<Header>Мои группы</Header>}
             >
                 {groups && groups.length > 0 &&
-                    <Groups go={go} groups={groups} />
+                    <Groups go={go} groups={groups} club_name={club_name} />
                 }
                 {!groups || groups.length === 0 &&
                     <Div>
