@@ -16,6 +16,7 @@ import AddStudyGroup from './panels/teacher/forms/AddStudyGroup'
 import AddStudent from './panels/teacher/forms/AddStudent'
 //Экраны
 import Club from './panels/teacher/screens/Club'
+import GroupOfClub from './panels/teacher/screens/GroupOfClub'
 
 
 const App = () => {
@@ -44,7 +45,7 @@ const App = () => {
 			setClubId(e.currentTarget.dataset.clubid)
 		}
 		if (e.currentTarget.dataset.groupId) {
-			setClubId(e.currentTarget.dataset.groupid)
+			setGroupId(e.currentTarget.dataset.groupid)
 		}
 		setActivePanel(e.currentTarget.dataset.to)
 	};
@@ -60,6 +61,7 @@ const App = () => {
 					<AddStudyGroup id="teacher_addStudyGroup" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId}/>
 					<AddStudent id="teacher_addStudent" fetchedUser={fetchedUser} go={go} store={store}/>
 					<Club id="club" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} />
+					<GroupOfClub id="group" fetchedUser={fetchedUser} go={go} store={store} club_name={clubId} group_name={groupId}/>
 					
 				</View>
 			</AppRoot>
