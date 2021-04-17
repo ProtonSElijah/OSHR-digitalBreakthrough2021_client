@@ -32,10 +32,12 @@ const roles = [
 
 const RolesSelect = ({ id, go, fetchedUser }) => {
 	const [role, setRole] = useState('role');
+	const [roleId, setRoleId] = useState(null)
 
 	const onChangeRole = (e) => {
 		console.log(e.currentTarget.value)
 		setRole(e.currentTarget.value)
+		setRoleId(`${e.currentTarget.value}_profile`)
 	}
 
 	return (
@@ -59,7 +61,7 @@ const RolesSelect = ({ id, go, fetchedUser }) => {
 				</FormLayout>
 				{role &&
 				<Div>
-					<Button stretched size="l" onClick={go} data-to="persik">
+					<Button stretched size="l" onClick={go} data-to={roleId}>
 						Продолжить
 					</Button>
 				</Div>}
