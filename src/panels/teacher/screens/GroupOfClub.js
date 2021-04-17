@@ -28,7 +28,6 @@ const GroupOfClub = ({ id, go, fetchedUser, store, club_name, group_name }) => {
         for (const club of clubs) {
             if (club.name === club_name) {
                 for (const group of club.groups)
-                    
                     if (group.name === group_name) {
                         return group.students ? group.students : null
                     }

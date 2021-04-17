@@ -1,5 +1,6 @@
 const initialState = {
-    clubs: []
+    clubs: [],
+    students: []
 }
 
 function teacher(state=initialState, action) {
@@ -27,6 +28,7 @@ function teacher(state=initialState, action) {
                     for (const group of club.groups) {
                         if (group.name === action.group_name) {
                             group.students.push(action.student)
+                            state.students.push(action.student)
                             break
                         }
                     }

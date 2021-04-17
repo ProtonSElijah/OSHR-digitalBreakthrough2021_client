@@ -29,7 +29,11 @@ const AddStudent = ({ id, go, fetchedUser, store, group_name, club_name }) => {
         const student = {
             'firstname': firstname,
 			'lastname': lastname,
-			'id': Math.floor(Math.random() * 10000)
+			'id': Math.floor(Math.random() * 10000),
+            'clubs': {
+                'name': club_name,
+                'groups': group_name
+            }
         }
         store.dispatch(addStudent_action(student, group_name, club_name))
         go({'currentTarget': {'dataset': {'to': 'group'}}})
