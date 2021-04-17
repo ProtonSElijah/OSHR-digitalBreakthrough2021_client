@@ -58,7 +58,7 @@ const RolesSelect = ({ id, go, fetchedUser }) => {
 						/>
 					</FormItem>
 				</FormLayout>
-				{role &&
+				{role === 'teacher' &&
 				<Div>
 					<Button stretched size="l" onClick={go} data-to={roleId}>
 						Продолжить
