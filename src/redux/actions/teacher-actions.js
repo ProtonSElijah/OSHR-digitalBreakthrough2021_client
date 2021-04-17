@@ -4,3 +4,11 @@ export function addClub (club) {
         club,
     };
 }
+
+export function addGroup (group, club_name) {
+    return {
+        type: 'ADD_GROUP',
+        group,
+        club_name
+    };
+}
