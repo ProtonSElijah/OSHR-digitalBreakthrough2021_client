@@ -20,9 +20,9 @@ import {
   } from "@vkontakte/vkui"
 
   import {
-    Icon20FavoriteCircleFillYellow
+    Icon20FavoriteCircleFillYellow,
+    Icon28LightbulbCircleFillYellow 
   } from "@vkontakte/icons"
-
 
 const StudentProfile = ({ id, go, fetchedUser, store, student_id }) => {
     const getStudent = () => {
@@ -63,7 +63,12 @@ const StudentProfile = ({ id, go, fetchedUser, store, student_id }) => {
                 </Gradient>
             </Group>
             <Group>
-            <Cell before={<Icon20FavoriteCircleFillYellow width={26} height={26} />} description={`Секция ${student.clubs.name}, группа ${student.clubs.groups}`}>1-ое место в рейтинге</Cell>
+                <Cell before={<Icon20FavoriteCircleFillYellow width={26} height={26} />} description={`Секция ${student.clubs.name}, группа ${student.clubs.groups}`}>1-ое место в рейтинге</Cell>
+            </Group>
+            <Group
+                header={<Header>Личные достижения</Header>}
+            >
+                <Cell before={<Icon28LightbulbCircleFillYellow width={26} height={26} />} description={`Петербургский молодежный форум`}>1-ое место на выставке проектов</Cell>
             </Group>
         </Panel>
     )
