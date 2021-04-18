@@ -46,7 +46,8 @@ const GroupOfClub = ({ id, go, fetchedUser, store, club_name, group_name }) => {
 			</PanelHeader>
 
             <Div>
-                <CellButton before={<Icon28AddOutline />} onClick={go} data-to={'teacher_addStudent'} data-clubid={club_name} data-groupid={group_name}>Добавить ученика</CellButton>
+                <CellButton before={<Icon28AddOutline width={22} height={22} />}>Добавить занятие</CellButton>
+                <CellButton before={<Icon28AddOutline width={22} height={22} />} onClick={go} data-to={'teacher_addStudent'} data-clubid={club_name} data-groupid={group_name}>Добавить ученика</CellButton>
             </Div>
 
             <Group

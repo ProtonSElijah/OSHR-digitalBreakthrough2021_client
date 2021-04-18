@@ -15,19 +15,20 @@ import {
     Panel,
     Gradient,
     CellButton,
-    CardGrid
+    CardGrid,
+    RichCell
   } from "@vkontakte/vkui"
 
   import {
-    Icon28AddOutline
+    Icon20FavoriteCircleFillYellow,
+    Icon28LightbulbCircleFillYellow 
   } from "@vkontakte/icons"
-
 
 const StudentProfile = ({ id, go, fetchedUser, store, student_id }) => {
     const getStudent = () => {
         const students = store.getState().teacherState.students
         for (const student of students) {
-            if (student.id === student_id) {
+            if ((student.id).toString() === student_id) {
                 return student ? student : null
             }
         }
@@ -60,6 +61,14 @@ const StudentProfile = ({ id, go, fetchedUser, store, student_id }) => {
                     <Text style={{ marginBottom: 24, color: 'var(--text_secondary)' }}>Инфо</Text>
                     <Button size="m" mode="secondary">Редактировать</Button>
                 </Gradient>
+            </Group>
+            <Group>
+                <Cell before={<Icon20FavoriteCircleFillYellow width={26} height={26} />} description={`Секция ${student.clubs.name}, группа ${student.clubs.groups}`}>1-ое место в рейтинге</Cell>
+            </Group>
+            <Group
+                header={<Header>Личные достижения</Header>}
+            >
+                <Cell before={<Icon28LightbulbCircleFillYellow width={26} height={26} />} description={`Петербургский молодежный форум`}>1-ое место на выставке проектов</Cell>
             </Group>
         </Panel>
     )

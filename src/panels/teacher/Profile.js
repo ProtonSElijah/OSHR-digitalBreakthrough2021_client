@@ -18,9 +18,12 @@ import {
   } from "@vkontakte/vkui"
 
   import {
-    Icon28AddOutline
+    Icon20FavoriteCircleFillYellow,
+    Icon28AddOutline,
+    Icon20CalendarOutline,
+    Icon24LightbulbStarOutline
   } from "@vkontakte/icons"
-
+  
   import Clubs from './components/Clubs'
 
 
@@ -50,7 +53,10 @@ const TeacherProfile = ({ id, go, fetchedUser, store }) => {
                     <Button size="m" mode="secondary">Редактировать</Button>
                 </Gradient>
 
-                <CellButton before={<Icon28AddOutline />} onClick={go} data-to={'teacher_addClub'}>Добавить секцию</CellButton>
+                <CellButton before={<Icon20FavoriteCircleFillYellow width={22} height={22} />}>Рейтинг учеников</CellButton>
+                <CellButton before={<Icon24LightbulbStarOutline width={22} height={22} />}>Отметить достижения учеников</CellButton>
+                <CellButton before={<Icon20CalendarOutline width={22} height={22} />}>Расписание занятий</CellButton>
+                <CellButton before={<Icon28AddOutline width={22} height={22} />} onClick={go} data-to={'teacher_addClub'}>Добавить секцию</CellButton>
             </Group>
 
             <Group
