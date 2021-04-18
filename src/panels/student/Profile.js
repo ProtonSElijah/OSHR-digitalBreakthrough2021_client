@@ -27,7 +27,7 @@ const StudentProfile = ({ id, go, fetchedUser, store, student_id }) => {
     const getStudent = () => {
         const students = store.getState().teacherState.students
         for (const student of students) {
-            if (student.id === student_id) {
+            if ((student.id).toString() === student_id) {
                 return student ? student : null
             }
         }

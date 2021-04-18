@@ -11,7 +11,11 @@ import {
     FormLayout,
     FormItem,
     Input,
-    Button
+    Button,
+    Div,
+    FormLayoutGroup,
+    Select,
+    Checkbox
   } from "@vkontakte/vkui"
 
 const AddClub = ({ id, go, fetchedUser, store }) => {
@@ -43,6 +47,25 @@ const AddClub = ({ id, go, fetchedUser, store }) => {
                     <FormItem top="Название">
                         <Input onChange={onchangeName} />
                     </FormItem>
+                    <FormItem top="Направление">
+                        <Select
+                            options={[{
+                                value: '0', label: 'Программирование и робототехника' }, { 
+                                value: '1', label: 'Единоборства' }, {
+                                value: '2', label: 'Другое' }
+                            ]}
+                        />
+                    </FormItem>
+
+                    <FormLayoutGroup mode="horizontal" top="Возрастные ограничения">
+                        <FormItem top="От (лет)">            
+                            <Input />
+                        </FormItem>
+                        <FormItem top="До (лет)">            
+                            <Input />
+                        </FormItem>
+                    </FormLayoutGroup>
+                    <Checkbox>Без возрастных ограничений</Checkbox>
                 </FormLayout>
 
                 <FormItem>

@@ -20,7 +20,7 @@ const Students = ({ go, students, club_name, group_name }) => {
 Students.propTypes = {
     students: PropTypes.array.isRequired,
     club_name: PropTypes.string.isRequired,
-    group_name: PropTypes.string.isRequired
+    //group_name: PropTypes.string.isRequired
 }
 
 export default Students
