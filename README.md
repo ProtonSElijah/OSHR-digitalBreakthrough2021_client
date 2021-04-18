@@ -1,9 +1,8 @@
 [<img width="134" src="https://vk.com/images/apps/mini_apps/vk_mini_apps_logo.svg">](https://vk.com/services)
 
 # VK Mini App Трекинг развития
-ДЛЯ ТРЕКИНГА РАЗВИТИЯ ШКОЛЬНИКОВ В ОФЛАЙН-КРУЖКАХ И СЕКЦИЯХ
 
-
+Приложение для трекинга развития школьников в офлайн-кружках и секциях
 ## https://m.vk.com/app7827195
 
 ### Локальное развертывание проекта
