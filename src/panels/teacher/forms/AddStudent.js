@@ -62,7 +62,7 @@ const AddStudent = ({ id, go, fetchedUser, store, group_name, club_name }) => {
                 <Div><Text>Должен быть поиск по пользователям ВК для инвайта, но пока что мок</Text></Div>
 
                 <FormItem>
-                    <Button size="l" stretched onClick={addStudent} data-clubid={club_name} data-groupid={group_name}>Добавить студента</Button>
+                    <Button size="l" stretched onClick={addStudent} data-clubid={club_name} data-groupid={group_name}>Добавить ученика</Button>
                 </FormItem>
             </Group>
 		</Panel>
