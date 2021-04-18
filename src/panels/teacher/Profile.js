@@ -52,8 +52,8 @@ const TeacherProfile = ({ id, go, fetchedUser, store }) => {
                     <Button size="m" mode="secondary">Редактировать</Button>
                 </Gradient>
 
-                <CellButton before={<Icon20FavoriteCircleFillYellow width={22} height={22} />} onClick={go} data-to={'teacher_addClub'}>Рейтинг учеников</CellButton>
-                <CellButton before={<Icon20CalendarOutline width={22} height={22} />} onClick={go} data-to={'teacher_addClub'}>Расписание занятий</CellButton>
+                <CellButton before={<Icon20FavoriteCircleFillYellow width={22} height={22} />}>Рейтинг учеников</CellButton>
+                <CellButton before={<Icon20CalendarOutline width={22} height={22} />}>Расписание занятий</CellButton>
                 <CellButton before={<Icon28AddOutline width={22} height={22} />} onClick={go} data-to={'teacher_addClub'}>Добавить секцию</CellButton>
             </Group>
 

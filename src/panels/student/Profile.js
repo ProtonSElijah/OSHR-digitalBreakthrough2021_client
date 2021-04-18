@@ -15,11 +15,12 @@ import {
     Panel,
     Gradient,
     CellButton,
-    CardGrid
+    CardGrid,
+    RichCell
   } from "@vkontakte/vkui"
 
   import {
-    Icon28AddOutline
+    Icon20FavoriteCircleFillYellow
   } from "@vkontakte/icons"
 
 
@@ -60,6 +61,9 @@ const StudentProfile = ({ id, go, fetchedUser, store, student_id }) => {
                     <Text style={{ marginBottom: 24, color: 'var(--text_secondary)' }}>Инфо</Text>
                     <Button size="m" mode="secondary">Редактировать</Button>
                 </Gradient>
+            </Group>
+            <Group>
+            <Cell before={<Icon20FavoriteCircleFillYellow width={26} height={26} />} description={`Секция ${student.clubs.name}, группа ${student.clubs.groups}`}>1-ое место в рейтинге</Cell>
             </Group>
         </Panel>
     )
