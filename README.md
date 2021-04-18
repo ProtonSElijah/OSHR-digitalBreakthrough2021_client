@@ -3,9 +3,7 @@
 # VK Mini App Трекинг развития
 ## https://m.vk.com/app7827195
 
-## How to use
-
-### With NPX
+### Локальное развертывание проекта
 
 ```bash
 npx @vkontakte/create-vk-mini-app [app-directory-name] [options]
